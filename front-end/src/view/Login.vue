@@ -42,7 +42,7 @@ const onSignIn = handleSignInSubmit(async (values) => {
   const success = await login(values.email, values.password);
 
   if (success) {
-    router.push('/');
+    router.push('/dashboard');
   }
 });
 
@@ -85,7 +85,7 @@ const onSignUp = handleSignUpSubmit(async (values) => {
   const success = await register(values.name, values.email, values.password);
 
   if (success) {
-    router.push('/');
+    router.push('/dashboard');
   }
 });
 </script>
