@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 
-import BeeButton from './BeeButton.vue';
+import BeeButton from '@/components/BeeButton.vue';
 
-import { useTheme } from '../composables/useTheme';
-import { useAuth } from '../composables/useAuth';
+import { useTheme } from '@/composables/useTheme';
+import { useAuth } from '@/composables/useAuth';
 
 interface Props {
   title?: string;

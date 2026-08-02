@@ -5,8 +5,8 @@ import Cookies from 'js-cookie';
 import {
   login as loginService,
   register as registerService,
-} from '../services/auth.service';
-import type { User } from '../types/user';
+} from '@/services/auth.service';
+import type { User } from '@/types/user';
 
 const TOKEN_KEY = 'colmeiabee_token';
 const USER_KEY = 'colmeiabee_user';
@@ -70,6 +70,7 @@ export const useAuthStore = defineStore('auth', () => {
     } catch (err: unknown) {
       if (err && typeof err === 'object' && 'response' in err) {
         const axiosErr = err as { response?: { data?: { message?: string } } };
+
         error.value = axiosErr.response?.data?.message || 'Erro ao fazer login';
       } else {
         error.value = 'Erro de conexão com o servidor';
@@ -90,11 +91,13 @@ export const useAuthStore = defineStore('auth', () => {
 
     try {
       const response = await registerService({ name, email, password });
+
       saveSession(response.accessToken, response.user);
       return true;
     } catch (err: unknown) {
       if (err && typeof err === 'object' && 'response' in err) {
         const axiosErr = err as { response?: { data?: { message?: string } } };
+
         error.value = axiosErr.response?.data?.message || 'Erro ao criar conta';
       } else {
         error.value = 'Erro de conexão com o servidor';

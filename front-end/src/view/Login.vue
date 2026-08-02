@@ -5,11 +5,11 @@ import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import { z } from 'zod';
 
-import BeeInput from '../components/BeeInput.vue';
-import BeeButton from '../components/BeeButton.vue';
+import BeeInput from '@/components/BeeInput.vue';
+import BeeButton from '@/components/BeeButton.vue';
 
-import { useTheme } from '../composables/useTheme';
-import { useAuth } from '../composables/useAuth';
+import { useTheme } from '@/composables/useTheme';
+import { useAuth } from '@/composables/useAuth';
 
 const router = useRouter();
 const { theme, toggleTheme } = useTheme();
