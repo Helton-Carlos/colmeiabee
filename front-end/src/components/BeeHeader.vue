@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useTheme } from '../composables/useTheme';
+import BeeButton from './BeeButton.vue';
+
 interface Props {
   title?: string;
 }
@@ -7,37 +10,55 @@ const props = withDefaults(defineProps<Props>(), {
   title: 'ColmeiaBee',
 });
 
-const emit = defineEmits<{
-  toggleTheme: [];
-}>();
+const { theme, toggleTheme } = useTheme();
 </script>
 
 <template>
   <header
-    class="w-full border-b border-[var(--border-base)] bg-[var(--bg-surface)]"
+    class="w-full py-4 fixed top-0 left-0 z-50 border-b border-(--border-base) bg-(--bg-surface)/90 backdrop-blur-md"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <div class="flex items-center gap-3">
-          <span class="text-2xl font-bold text-primary">🐝</span>
-          <h1 class="text-xl font-bold text-[var(--text-base)]">
+        <a href="#" class="flex items-center gap-3">
+          <span class="text-2xl">🐝</span>
+          <h1 class="text-xl font-bold text-(--text-base)">
             {{ props.title }}
           </h1>
-        </div>
+        </a>
 
         <nav class="hidden md:flex items-center gap-6">
-          <slot name="nav" />
+          <a
+            href="#conteudos"
+            class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
+            >Conteúdos</a
+          >
+          <a
+            href="#podcast"
+            class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
+            >Podcast</a
+          >
+          <a
+            href="#comunidade"
+            class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
+            >Comunidade</a
+          >
+          <a
+            href="#contato"
+            class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
+            >Contato</a
+          >
         </nav>
 
         <div class="flex items-center gap-3">
           <button
-            @click="emit('toggleTheme')"
-            class="p-2 rounded-lg hover:bg-[var(--bg-base)] transition-colors cursor-pointer"
+            @click="toggleTheme"
+            class="p-4 rounded-lg hover:bg-(--bg-base) transition-colors cursor-pointer text-(--text-muted)"
             aria-label="Alternar tema"
           >
-            <slot name="theme-icon"> 🌙 </slot>
+            <span v-if="theme === 'light'">🌙</span>
+            <span v-else>☀️</span>
           </button>
-          <slot name="actions" />
+          <BeeButton variant="primary" size="md"> Login </BeeButton>
         </div>
       </div>
     </div>

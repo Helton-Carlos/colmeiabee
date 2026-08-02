@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import BeeBanner from './components/BeeBanner.vue';
+import Home from './view/Home.vue';
 </script>
 
 <template>
-  <BeeBanner />
+  <Home />
 </template>
