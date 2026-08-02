@@ -13,7 +13,6 @@ const { theme, toggleTheme } = useTheme();
 
 const activeTab = ref<'signin' | 'signup'>('signin');
 
-// --- Sign In Schema ---
 const signInSchema = toTypedSchema(
   z.object({
     email: z
@@ -36,11 +35,9 @@ const [signInEmail, signInEmailAttrs] = defineSignInField('email');
 const [signInPassword, signInPasswordAttrs] = defineSignInField('password');
 
 const onSignIn = handleSignInSubmit((values) => {
-  // TODO: integrar com backend
   console.log('Sign In:', values);
 });
 
-// --- Sign Up Schema ---
 const signUpSchema = toTypedSchema(
   z
     .object({
@@ -77,14 +74,12 @@ const [signUpConfirmPassword, signUpConfirmPasswordAttrs] =
   defineSignUpField('confirmPassword');
 
 const onSignUp = handleSignUpSubmit((values) => {
-  // TODO: integrar com backend
   console.log('Sign Up:', values);
 });
 </script>
 
 <template>
   <div class="min-h-screen bg-(--bg-base) flex">
-    <!-- Left: Branding panel -->
     <div
       class="hidden lg:flex lg:w-1/2 bg-dark relative overflow-hidden items-center justify-center"
     >
@@ -106,9 +101,7 @@ const onSignUp = handleSignUpSubmit((values) => {
       </div>
     </div>
 
-    <!-- Right: Form panel -->
     <div class="w-full lg:w-1/2 flex flex-col">
-      <!-- Top bar -->
       <div class="flex items-center justify-between p-6">
         <button
           @click="router.push('/')"
@@ -128,10 +121,8 @@ const onSignUp = handleSignUpSubmit((values) => {
         </button>
       </div>
 
-      <!-- Form area -->
       <div class="flex-1 flex items-center justify-center px-6 sm:px-12">
         <div class="w-full max-w-md">
-          <!-- Mobile logo -->
           <div class="lg:hidden text-center mb-8">
             <span class="text-4xl">🐝</span>
             <h1 class="text-2xl font-bold text-(--text-base) mt-2">
@@ -139,15 +130,14 @@ const onSignUp = handleSignUpSubmit((values) => {
             </h1>
           </div>
 
-          <!-- Tabs -->
           <div class="flex mb-8 border-b border-(--border-base)">
             <button
               @click="activeTab = 'signin'"
               :class="[
                 'flex-1 pb-3 text-center text-lg font-bold transition-colors cursor-pointer',
                 activeTab === 'signin'
-                  ? 'text-primary border-b-2 border-primary'
-                  : 'text-(--text-base) hover:text-dark',
+                  ? 'text-dark border-b-2 border-dark'
+                  : 'text-gray hover:text-dark',
               ]"
             >
               Entrar
@@ -158,8 +148,8 @@ const onSignUp = handleSignUpSubmit((values) => {
               :class="[
                 'flex-1 pb-3 text-center text-lg font-bold transition-colors cursor-pointer',
                 activeTab === 'signup'
-                  ? 'text-primary border-b-2 border-primary'
-                  : 'text-(--text-base) hover:text-dark',
+                  ? 'text-dark border-b-2 border-dark'
+                  : 'text-gray hover:text-dark',
               ]"
             >
               Criar Conta
