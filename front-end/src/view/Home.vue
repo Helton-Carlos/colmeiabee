@@ -29,18 +29,17 @@ import { conteudos, parceiros } from '../utils/home.ts';
             <span
               class="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6"
             >
-              🐝 Conteúdo para profissionais criativos
+              🐝 Conteúdo para apicultores e produtores rurais
             </span>
             <h1
               class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
             >
-              A colmeia dos
-              <span class="text-primary"> criativos</span>
+              A colmeia do
+              <span class="text-primary"> agro</span>
             </h1>
             <p class="text-lg text-gray-400 max-w-lg mb-8">
-              Conteúdos, cursos, comunidade e ferramentas para impulsionar sua
-              carreira criativa. Conecte-se com outros profissionais e evolua
-              junto.
+              Conteúdos, cursos e comunidade para apicultores, meliponicultores
+              e produtores rurais. Conecte-se, aprenda e produza mais.
             </p>
             <div class="flex flex-wrap gap-4">
               <BeeButton variant="primary" size="lg"
@@ -82,9 +81,9 @@ import { conteudos, parceiros } from '../utils/home.ts';
               BeeCast
             </h2>
             <p class="text-lg text-dark/70 mb-6">
-              Papo sobre design, criatividade, comunicação, mercado de trabalho
-              e muito mais. Toda semana um episódio novo pra você ouvir enquanto
-              cria.
+              Papo sobre apicultura, manejo de colmeias, mercado do mel,
+              polinização e o universo agro. Toda semana um episódio novo pra
+              você ouvir enquanto cuida das suas abelhas.
             </p>
             <div class="flex flex-wrap gap-3 mb-8">
               <a
@@ -123,8 +122,8 @@ import { conteudos, parceiros } from '../utils/home.ts';
             Conteúdos
           </h2>
           <p class="text-lg text-(--text-muted) max-w-2xl mx-auto">
-            Reviews, vlogs, cursos e tutoriais em diversos formatos e
-            plataformas.
+            Artigos, vídeos e tutoriais sobre apicultura, meliponicultura e
+            agronegócio.
           </p>
         </div>
 
@@ -137,17 +136,27 @@ import { conteudos, parceiros } from '../utils/home.ts';
           <button
             class="px-4 py-2 rounded-full bg-(--bg-surface) text-(--text-muted) text-sm font-medium hover:text-primary transition-colors cursor-pointer"
           >
-            Carreira
+            Apicultura
           </button>
           <button
             class="px-4 py-2 rounded-full bg-(--bg-surface) text-(--text-muted) text-sm font-medium hover:text-primary transition-colors cursor-pointer"
           >
-            Design
+            Manejo
           </button>
           <button
             class="px-4 py-2 rounded-full bg-(--bg-surface) text-(--text-muted) text-sm font-medium hover:text-primary transition-colors cursor-pointer"
           >
-            Freelancer
+            Agro
+          </button>
+          <button
+            class="px-4 py-2 rounded-full bg-(--bg-surface) text-(--text-muted) text-sm font-medium hover:text-primary transition-colors cursor-pointer"
+          >
+            Sanidade
+          </button>
+          <button
+            class="px-4 py-2 rounded-full bg-(--bg-surface) text-(--text-muted) text-sm font-medium hover:text-primary transition-colors cursor-pointer"
+          >
+            Produtos
           </button>
           <button
             class="px-4 py-2 rounded-full bg-(--bg-surface) text-(--text-muted) text-sm font-medium hover:text-primary transition-colors cursor-pointer"
@@ -194,35 +203,36 @@ import { conteudos, parceiros } from '../utils/home.ts';
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Bee Pack Criativo
+              Kit do Apicultor
             </h2>
             <p class="text-lg text-gray-400 mb-6">
-              Um pacote completo com templates, mockups, contratos e recursos
-              para potencializar seus projetos criativos. Feito por criativos,
-              para criativos.
+              Um pacote completo com planilhas de manejo, guias de floradas,
+              fichas de controle sanitário e modelos de registro. Feito por
+              apicultores, para apicultores.
             </p>
             <ul class="space-y-3 mb-8">
               <li class="flex items-center gap-3 text-gray-300">
-                <span class="text-primary">✓</span> Mais de 50 templates
-                profissionais
+                <span class="text-primary">✓</span> Planilhas de controle de
+                colmeias
               </li>
               <li class="flex items-center gap-3 text-gray-300">
-                <span class="text-primary">✓</span> Contratos e documentos
-                prontos
+                <span class="text-primary">✓</span> Calendário de floradas por
+                região
               </li>
               <li class="flex items-center gap-3 text-gray-300">
-                <span class="text-primary">✓</span> Mockups exclusivos
+                <span class="text-primary">✓</span> Fichas de manejo e sanidade
               </li>
               <li class="flex items-center gap-3 text-gray-300">
-                <span class="text-primary">✓</span> Atualizações gratuitas
+                <span class="text-primary">✓</span> Guia de legislação e
+                registro
               </li>
             </ul>
             <BeeButton variant="primary" size="lg">Garantir Agora</BeeButton>
           </div>
           <div class="flex justify-center">
             <img
-              src="https://placehold.co/450x450/2d2d2d/FFF914?text=📦+Bee+Pack"
-              alt="Bee Pack Criativo"
+              src="https://placehold.co/450x450/2d2d2d/FFF914?text=🍯+Kit+Apicultor"
+              alt="Kit do Apicultor"
               class="rounded-2xl shadow-2xl shadow-primary/10 w-full max-w-sm"
             />
           </div>
@@ -254,8 +264,8 @@ import { conteudos, parceiros } from '../utils/home.ts';
             Faça parte da Colmeia
           </h2>
           <p class="text-lg text-(--text-muted) max-w-2xl mx-auto">
-            Conecte-se com outros criativos, compartilhe seu trabalho e encontre
-            oportunidades.
+            Conecte-se com outros apicultores, troque experiências e cresça
+            junto com a comunidade.
           </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -265,7 +275,7 @@ import { conteudos, parceiros } from '../utils/home.ts';
             <span class="text-4xl mb-4 block">📸</span>
             <h3 class="font-bold text-lg text-(--text-base) mb-2">Instagram</h3>
             <p class="text-sm text-(--text-muted) mb-4">
-              Curadoria criativa dos melhores trabalhos e inspirações diárias.
+              Dicas diárias de manejo, fotos dos apiários e novidades do setor.
             </p>
             <a href="#" class="text-primary font-medium text-sm hover:underline"
               >Seguir →</a
@@ -275,10 +285,12 @@ import { conteudos, parceiros } from '../utils/home.ts';
             class="text-center p-8 rounded-2xl bg-(--bg-surface) border border-(--border-base)"
           >
             <span class="text-4xl mb-4 block">💬</span>
-            <h3 class="font-bold text-lg text-(--text-base) mb-2">Discord</h3>
+            <h3 class="font-bold text-lg text-(--text-base) mb-2">
+              Grupo WhatsApp
+            </h3>
             <p class="text-sm text-(--text-muted) mb-4">
-              Comunidade ativa com vagas, networking e muita troca de
-              experiência.
+              Comunidade ativa de apicultores para tirar dúvidas e trocar
+              experiências.
             </p>
             <a href="#" class="text-primary font-medium text-sm hover:underline"
               >Entrar →</a
@@ -290,7 +302,7 @@ import { conteudos, parceiros } from '../utils/home.ts';
             <span class="text-4xl mb-4 block">🎬</span>
             <h3 class="font-bold text-lg text-(--text-base) mb-2">YouTube</h3>
             <p class="text-sm text-(--text-muted) mb-4">
-              Vídeos, tutoriais e vlogs sobre o universo criativo toda semana.
+              Vídeos práticos sobre manejo, extração de mel e gestão do apiário.
             </p>
             <a href="#" class="text-primary font-medium text-sm hover:underline"
               >Inscrever →</a
@@ -302,8 +314,8 @@ import { conteudos, parceiros } from '../utils/home.ts';
 
     <BeeFooter id="contato">
       <template #description>
-        A colmeia dos profissionais criativos. Conteúdo, comunidade e
-        ferramentas para sua evolução.
+        A colmeia do agro. Conteúdo, comunidade e ferramentas para apicultores e
+        produtores rurais.
       </template>
       <template #links>
         <h4
@@ -337,7 +349,7 @@ import { conteudos, parceiros } from '../utils/home.ts';
             <a
               href="#"
               class="text-sm text-(--text-muted) hover:text-primary transition-colors"
-              >Bee Pack</a
+              >Kit Apicultor</a
             >
           </li>
         </ul>
