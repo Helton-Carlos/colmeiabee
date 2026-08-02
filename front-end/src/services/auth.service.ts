@@ -1,24 +1,9 @@
 import api from './api';
-
-interface LoginPayload {
-  email: string;
-  password: string;
-}
-
-interface RegisterPayload {
-  name: string;
-  email: string;
-  password: string;
-}
-
-interface AuthResponse {
-  accessToken: string;
-  user: {
-    id: number;
-    email: string;
-    name: string;
-  };
-}
+import type {
+  LoginPayload,
+  RegisterPayload,
+  AuthResponse,
+} from '../types/user';
 
 export async function login(payload: LoginPayload): Promise<AuthResponse> {
   const { data } = await api.post<AuthResponse>('/auth/login', payload);

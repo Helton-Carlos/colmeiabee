@@ -51,7 +51,7 @@ import { useTheme } from '../composables/useTheme';
 
 const { theme, toggleTheme } = useTheme();
 
-const count = ref(0);
+const count = ref<number>(0);
 
 function increment() {
   count.value++;
