@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { useTheme } from '../composables/useTheme';
 import BeeButton from './BeeButton.vue';
 
@@ -10,6 +11,7 @@ const props = withDefaults(defineProps<Props>(), {
   title: 'ColmeiaBee',
 });
 
+const router = useRouter();
 const { theme, toggleTheme } = useTheme();
 </script>
 
@@ -19,7 +21,10 @@ const { theme, toggleTheme } = useTheme();
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="#" class="flex items-center gap-3">
+        <a
+          @click="router.push('/')"
+          class="flex items-center gap-3 cursor-pointer"
+        >
           <span class="text-2xl">🐝</span>
           <h1 class="text-xl font-bold text-(--text-base)">
             {{ props.title }}
@@ -58,7 +63,9 @@ const { theme, toggleTheme } = useTheme();
             <span v-if="theme === 'light'">🌙</span>
             <span v-else>☀️</span>
           </button>
-          <BeeButton variant="primary" size="md"> Login </BeeButton>
+          <BeeButton variant="primary" size="md" @click="router.push('/login')">
+            Login
+          </BeeButton>
         </div>
       </div>
     </div>
