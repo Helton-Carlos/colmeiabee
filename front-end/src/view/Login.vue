@@ -104,17 +104,17 @@ const onSignUp = handleSignUpSubmit((values) => {
     <div class="w-full lg:w-1/2 flex flex-col">
       <div class="flex items-center justify-between p-6">
         <button
-          @click="router.push('/')"
           class="flex items-center gap-2 text-(--text-base) hover:text-dark transition-colors cursor-pointer"
+          @click="router.push('/')"
         >
           <span class="text-lg">←</span>
           <span class="text-base font-semibold">Voltar</span>
         </button>
 
         <button
-          @click="toggleTheme"
           class="p-2 rounded-lg hover:bg-(--bg-surface) transition-colors cursor-pointer text-(--text-base)"
           aria-label="Alternar tema"
+          @click="toggleTheme"
         >
           <span v-if="theme === 'light'">🌙</span>
           <span v-else>☀️</span>
@@ -132,35 +132,34 @@ const onSignUp = handleSignUpSubmit((values) => {
 
           <div class="flex mb-8 border-b border-(--border-base)">
             <button
-              @click="activeTab = 'signin'"
               :class="[
                 'flex-1 pb-3 text-center text-lg font-bold transition-colors cursor-pointer',
                 activeTab === 'signin'
                   ? 'text-dark border-b-2 border-dark'
                   : 'text-gray hover:text-dark',
               ]"
+              @click="activeTab = 'signin'"
             >
               Entrar
             </button>
 
             <button
-              @click="activeTab = 'signup'"
               :class="[
                 'flex-1 pb-3 text-center text-lg font-bold transition-colors cursor-pointer',
                 activeTab === 'signup'
                   ? 'text-dark border-b-2 border-dark'
                   : 'text-gray hover:text-dark',
               ]"
+              @click="activeTab = 'signup'"
             >
               Criar Conta
             </button>
           </div>
 
-          <!-- Sign In Form -->
           <form
             v-if="activeTab === 'signin'"
-            @submit.prevent="onSignIn"
             class="space-y-5"
+            @submit.prevent="onSignIn"
           >
             <BeeInput
               v-model="signInEmail"
@@ -170,6 +169,7 @@ const onSignUp = handleSignUpSubmit((values) => {
               placeholder="seu@email.com"
               :error="signInErrors.email"
             />
+
             <BeeInput
               v-model="signInPassword"
               v-bind="signInPasswordAttrs"
@@ -187,8 +187,7 @@ const onSignUp = handleSignUpSubmit((values) => {
               <a
                 href="#"
                 class="text-base font-medium text-dark hover:text-primary hover:underline"
-                >Esqueceu a senha?</a
-              >
+              >Esqueceu a senha?</a>
             </div>
 
             <BeeButton variant="primary" size="lg" class="w-full">
@@ -200,9 +199,7 @@ const onSignUp = handleSignUpSubmit((values) => {
                 <div class="w-full border-t border-(--border-base)"></div>
               </div>
               <div class="relative flex justify-center text-base">
-                <span class="px-3 bg-(--bg-base) text-(--text-base) font-medium"
-                  >ou continue com</span
-                >
+                <span class="px-3 bg-(--bg-base) text-(--text-base) font-medium">ou continue com</span>
               </div>
             </div>
 
@@ -212,24 +209,19 @@ const onSignUp = handleSignUpSubmit((values) => {
                 class="flex items-center justify-center gap-2 px-4 py-3 border border-(--border-base) rounded-lg hover:bg-dark hover:text-white transition-colors cursor-pointer"
               >
                 <span>🔵</span>
-                <span class="text-base font-semibold text-(--text-base)"
-                  >Google</span
-                >
+                <span class="text-base font-semibold text-(--text-base)">Google</span>
               </button>
               <button
                 type="button"
                 class="flex items-center justify-center gap-2 px-4 py-3 border border-(--border-base) rounded-lg hover:bg-dark hover:text-white transition-colors cursor-pointer"
               >
                 <span>⚫</span>
-                <span class="text-base font-semibold text-(--text-base)"
-                  >GitHub</span
-                >
+                <span class="text-base font-semibold text-(--text-base)">GitHub</span>
               </button>
             </div>
           </form>
 
-          <!-- Sign Up Form -->
-          <form v-else @submit.prevent="onSignUp" class="space-y-5">
+          <form v-else class="space-y-5" @submit.prevent="onSignUp">
             <BeeInput
               v-model="signUpName"
               v-bind="signUpNameAttrs"
@@ -269,13 +261,9 @@ const onSignUp = handleSignUpSubmit((values) => {
 
             <p class="text-sm text-center text-(--text-base)">
               Ao criar uma conta, você concorda com nossos
-              <a href="#" class="text-primary font-medium hover:underline"
-                >Termos de Uso</a
-              >
+              <a href="#" class="text-primary font-medium hover:underline">Termos de Uso</a>
               e
-              <a href="#" class="text-primary font-medium hover:underline"
-                >Política de Privacidade</a
-              >.
+              <a href="#" class="text-primary font-medium hover:underline">Política de Privacidade</a>.
             </p>
           </form>
         </div>

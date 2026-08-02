@@ -22,8 +22,8 @@ const { theme, toggleTheme } = useTheme();
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <a
-          @click="router.push('/')"
           class="flex items-center gap-3 cursor-pointer"
+          @click="router.push('/')"
         >
           <span class="text-2xl">🐝</span>
           <h1 class="text-xl font-bold text-(--text-base)">
@@ -35,30 +35,26 @@ const { theme, toggleTheme } = useTheme();
           <a
             href="#conteudos"
             class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
-            >Conteúdos</a
-          >
+          >Conteúdos</a>
           <a
             href="#podcast"
             class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
-            >Podcast</a
-          >
+          >Podcast</a>
           <a
             href="#comunidade"
             class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
-            >Comunidade</a
-          >
+          >Comunidade</a>
           <a
             href="#contato"
             class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
-            >Contato</a
-          >
+          >Contato</a>
         </nav>
 
         <div class="flex items-center gap-3">
           <button
-            @click="toggleTheme"
             class="p-4 rounded-lg hover:bg-(--bg-base) transition-colors cursor-pointer text-(--text-muted)"
             aria-label="Alternar tema"
+            @click="toggleTheme"
           >
             <span v-if="theme === 'light'">🌙</span>
             <span v-else>☀️</span>

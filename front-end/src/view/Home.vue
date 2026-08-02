@@ -42,12 +42,12 @@ import { conteudos, parceiros } from '../utils/home.ts';
               e produtores rurais. Conecte-se, aprenda e produza mais.
             </p>
             <div class="flex flex-wrap gap-4">
-              <BeeButton variant="primary" size="lg"
-                >Explorar Conteúdos</BeeButton
-              >
-              <BeeButton variant="outline" size="lg"
-                >Conhecer a Comunidade</BeeButton
-              >
+              <BeeButton variant="primary" size="lg">
+                Explorar Conteúdos
+              </BeeButton>
+              <BeeButton variant="outline" size="lg">
+                Conhecer a Comunidade
+              </BeeButton>
             </div>
           </div>
           <div class="hidden lg:flex justify-center">
@@ -277,9 +277,7 @@ import { conteudos, parceiros } from '../utils/home.ts';
             <p class="text-sm text-(--text-muted) mb-4">
               Dicas diárias de manejo, fotos dos apiários e novidades do setor.
             </p>
-            <a href="#" class="text-primary font-medium text-sm hover:underline"
-              >Seguir →</a
-            >
+            <a href="#" class="text-primary font-medium text-sm hover:underline">Seguir →</a>
           </div>
           <div
             class="text-center p-8 rounded-2xl bg-(--bg-surface) border border-(--border-base)"
@@ -292,9 +290,7 @@ import { conteudos, parceiros } from '../utils/home.ts';
               Comunidade ativa de apicultores para tirar dúvidas e trocar
               experiências.
             </p>
-            <a href="#" class="text-primary font-medium text-sm hover:underline"
-              >Entrar →</a
-            >
+            <a href="#" class="text-primary font-medium text-sm hover:underline">Entrar →</a>
           </div>
           <div
             class="text-center p-8 rounded-2xl bg-(--bg-surface) border border-(--border-base)"
@@ -304,9 +300,7 @@ import { conteudos, parceiros } from '../utils/home.ts';
             <p class="text-sm text-(--text-muted) mb-4">
               Vídeos práticos sobre manejo, extração de mel e gestão do apiário.
             </p>
-            <a href="#" class="text-primary font-medium text-sm hover:underline"
-              >Inscrever →</a
-            >
+            <a href="#" class="text-primary font-medium text-sm hover:underline">Inscrever →</a>
           </div>
         </div>
       </div>
@@ -328,29 +322,25 @@ import { conteudos, parceiros } from '../utils/home.ts';
             <a
               href="#conteudos"
               class="text-sm text-(--text-muted) hover:text-primary transition-colors"
-              >Conteúdos</a
-            >
+            >Conteúdos</a>
           </li>
           <li>
             <a
               href="#podcast"
               class="text-sm text-(--text-muted) hover:text-primary transition-colors"
-              >Podcast</a
-            >
+            >Podcast</a>
           </li>
           <li>
             <a
               href="#comunidade"
               class="text-sm text-(--text-muted) hover:text-primary transition-colors"
-              >Comunidade</a
-            >
+            >Comunidade</a>
           </li>
           <li>
             <a
               href="#"
               class="text-sm text-(--text-muted) hover:text-primary transition-colors"
-              >Kit Apicultor</a
-            >
+            >Kit Apicultor</a>
           </li>
         </ul>
       </template>
@@ -365,29 +355,25 @@ import { conteudos, parceiros } from '../utils/home.ts';
             <a
               href="#"
               class="text-sm text-(--text-muted) hover:text-primary transition-colors"
-              >Instagram</a
-            >
+            >Instagram</a>
           </li>
           <li>
             <a
               href="#"
               class="text-sm text-(--text-muted) hover:text-primary transition-colors"
-              >YouTube</a
-            >
+            >YouTube</a>
           </li>
           <li>
             <a
               href="#"
               class="text-sm text-(--text-muted) hover:text-primary transition-colors"
-              >Discord</a
-            >
+            >Discord</a>
           </li>
           <li>
             <a
               href="#"
               class="text-sm text-(--text-muted) hover:text-primary transition-colors"
-              >Spotify</a
-            >
+            >Spotify</a>
           </li>
         </ul>
       </template>

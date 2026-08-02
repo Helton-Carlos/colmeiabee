@@ -17,9 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
         <div>
           <div class="flex items-center gap-2 mb-3">
             <span class="text-xl">🐝</span>
-            <span class="font-bold text-lg text-[var(--text-base)]"
-              >ColmeiaBee</span
-            >
+            <span class="font-bold text-lg text-[var(--text-base)]">ColmeiaBee</span>
           </div>
           <p class="text-sm text-[var(--text-muted)]">
             <slot name="description">

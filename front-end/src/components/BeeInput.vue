@@ -40,7 +40,6 @@ function onInput(event: Event) {
       :value="props.modelValue"
       :placeholder="props.placeholder"
       :disabled="props.disabled"
-      @input="onInput"
       :class="[
         'w-full px-4 py-2.5 rounded-lg border transition-all duration-200',
         'bg-[var(--bg-surface)] text-[var(--text-base)] placeholder-[var(--text-muted)]',
@@ -48,6 +47,7 @@ function onInput(event: Event) {
         'disabled:opacity-50 disabled:cursor-not-allowed',
         props.error ? 'border-red-500' : 'border-[var(--border-base)]',
       ]"
+      @input="onInput"
     />
     <span v-if="props.error" class="text-sm text-red-500">
       {{ props.error }}
