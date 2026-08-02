@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { useTheme } from '../composables/useTheme';
+
 import BeeButton from './BeeButton.vue';
+
+import { useTheme } from '../composables/useTheme';
+import { useAuth } from '../composables/useAuth';
 
 interface Props {
   title?: string;
@@ -13,6 +16,12 @@ const props = withDefaults(defineProps<Props>(), {
 
 const router = useRouter();
 const { theme, toggleTheme } = useTheme();
+const { user, isAuthenticated, logout } = useAuth();
+
+function handleLogout() {
+  logout();
+  router.push('/');
+}
 </script>
 
 <template>
@@ -35,19 +44,26 @@ const { theme, toggleTheme } = useTheme();
           <a
             href="#conteudos"
             class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
-          >Conteúdos</a>
+            >Conteúdos</a
+          >
+
           <a
             href="#podcast"
             class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
-          >Podcast</a>
+            >Podcast</a
+          >
+
           <a
             href="#comunidade"
             class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
-          >Comunidade</a>
+            >Comunidade</a
+          >
+
           <a
             href="#contato"
             class="text-md font-medium text-(--text-muted) hover:text-primary transition-colors"
-          >Contato</a>
+            >Contato</a
+          >
         </nav>
 
         <div class="flex items-center gap-3">
@@ -59,7 +75,23 @@ const { theme, toggleTheme } = useTheme();
             <span v-if="theme === 'light'">🌙</span>
             <span v-else>☀️</span>
           </button>
-          <BeeButton variant="primary" size="md" @click="router.push('/login')">
+
+          <template v-if="isAuthenticated">
+            <span class="text-sm font-medium text-(--text-base)">
+              {{ user?.name }}
+            </span>
+
+            <BeeButton variant="ghost" size="sm" @click="handleLogout">
+              Sair
+            </BeeButton>
+          </template>
+
+          <BeeButton
+            v-else
+            variant="primary"
+            size="md"
+            @click="router.push('/login')"
+          >
             Login
           </BeeButton>
         </div>

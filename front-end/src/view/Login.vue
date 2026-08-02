@@ -4,12 +4,16 @@ import { useRouter } from 'vue-router';
 import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import { z } from 'zod';
+
 import BeeInput from '../components/BeeInput.vue';
 import BeeButton from '../components/BeeButton.vue';
+
 import { useTheme } from '../composables/useTheme';
+import { useAuth } from '../composables/useAuth';
 
 const router = useRouter();
 const { theme, toggleTheme } = useTheme();
+const { login, register, isLoading, error: authError } = useAuth();
 
 const activeTab = ref<'signin' | 'signup'>('signin');
 
@@ -34,8 +38,12 @@ const {
 const [signInEmail, signInEmailAttrs] = defineSignInField('email');
 const [signInPassword, signInPasswordAttrs] = defineSignInField('password');
 
-const onSignIn = handleSignInSubmit((values) => {
-  console.log('Sign In:', values);
+const onSignIn = handleSignInSubmit(async (values) => {
+  const success = await login(values.email, values.password);
+
+  if (success) {
+    router.push('/');
+  }
 });
 
 const signUpSchema = toTypedSchema(
@@ -73,8 +81,12 @@ const [signUpPassword, signUpPasswordAttrs] = defineSignUpField('password');
 const [signUpConfirmPassword, signUpConfirmPasswordAttrs] =
   defineSignUpField('confirmPassword');
 
-const onSignUp = handleSignUpSubmit((values) => {
-  console.log('Sign Up:', values);
+const onSignUp = handleSignUpSubmit(async (values) => {
+  const success = await register(values.name, values.email, values.password);
+
+  if (success) {
+    router.push('/');
+  }
 });
 </script>
 
@@ -187,11 +199,24 @@ const onSignUp = handleSignUpSubmit((values) => {
               <a
                 href="#"
                 class="text-base font-medium text-dark hover:text-primary hover:underline"
-              >Esqueceu a senha?</a>
+                >Esqueceu a senha?</a
+              >
             </div>
 
-            <BeeButton variant="primary" size="lg" class="w-full">
-              Entrar
+            <div
+              v-if="authError && activeTab === 'signin'"
+              class="p-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm font-medium"
+            >
+              {{ authError }}
+            </div>
+
+            <BeeButton
+              variant="primary"
+              size="lg"
+              class="w-full"
+              :disabled="isLoading"
+            >
+              {{ isLoading ? 'Entrando...' : 'Entrar' }}
             </BeeButton>
 
             <div class="relative my-6">
@@ -199,7 +224,9 @@ const onSignUp = handleSignUpSubmit((values) => {
                 <div class="w-full border-t border-(--border-base)"></div>
               </div>
               <div class="relative flex justify-center text-base">
-                <span class="px-3 bg-(--bg-base) text-(--text-base) font-medium">ou continue com</span>
+                <span class="px-3 bg-(--bg-base) text-(--text-base) font-medium"
+                  >ou continue com</span
+                >
               </div>
             </div>
 
@@ -209,14 +236,18 @@ const onSignUp = handleSignUpSubmit((values) => {
                 class="flex items-center justify-center gap-2 px-4 py-3 border border-(--border-base) rounded-lg hover:bg-dark hover:text-white transition-colors cursor-pointer"
               >
                 <span>🔵</span>
-                <span class="text-base font-semibold text-(--text-base)">Google</span>
+                <span class="text-base font-semibold text-(--text-base)"
+                  >Google</span
+                >
               </button>
               <button
                 type="button"
                 class="flex items-center justify-center gap-2 px-4 py-3 border border-(--border-base) rounded-lg hover:bg-dark hover:text-white transition-colors cursor-pointer"
               >
                 <span>⚫</span>
-                <span class="text-base font-semibold text-(--text-base)">GitHub</span>
+                <span class="text-base font-semibold text-(--text-base)"
+                  >GitHub</span
+                >
               </button>
             </div>
           </form>
@@ -255,15 +286,31 @@ const onSignUp = handleSignUpSubmit((values) => {
               :error="signUpErrors.confirmPassword"
             />
 
-            <BeeButton variant="primary" size="lg" class="w-full">
-              Criar Conta
+            <div
+              v-if="authError && activeTab === 'signup'"
+              class="p-3 rounded-lg bg-red-50 border border-red-200 text-red-600 text-sm font-medium"
+            >
+              {{ authError }}
+            </div>
+
+            <BeeButton
+              variant="primary"
+              size="lg"
+              class="w-full"
+              :disabled="isLoading"
+            >
+              {{ isLoading ? 'Criando...' : 'Criar Conta' }}
             </BeeButton>
 
             <p class="text-sm text-center text-(--text-base)">
               Ao criar uma conta, você concorda com nossos
-              <a href="#" class="text-primary font-medium hover:underline">Termos de Uso</a>
+              <a href="#" class="text-primary font-medium hover:underline"
+                >Termos de Uso</a
+              >
               e
-              <a href="#" class="text-primary font-medium hover:underline">Política de Privacidade</a>.
+              <a href="#" class="text-primary font-medium hover:underline"
+                >Política de Privacidade</a
+              >.
             </p>
           </form>
         </div>
